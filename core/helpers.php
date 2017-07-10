@@ -14,12 +14,11 @@ function redirect($path)
     header("Location: /{$path}");
 }
 
-    /**
-     * @return bool
-     */
-    function loginStatus()
-{
-    return PHP_SESSION_ACTIVE === session_status () && isset($_SESSION['my_data']['username']);
-}
+    //    function loginStatus()
+    //{
+    //    return PHP_SESSION_ACTIVE === session_status () &&
+    //           App::get('database')->rowExists($_SESSION['my_data']['username'] ?? '',
+    //               $_SESSION['my_data']['session_hash'] ?? '');
+    //}
 
 
