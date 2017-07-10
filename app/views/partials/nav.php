@@ -7,6 +7,8 @@
         <?php if(false === loginStatus ()): ?>
             <li><a href = "/register">Register</a></li>
             <li><a href = "/login">Login</a></li>
+        <?php else: ?>
+            <li><a href = "/add_company">Add company</a></li>
         <?php endif;?>
     </ul>
 </nav>

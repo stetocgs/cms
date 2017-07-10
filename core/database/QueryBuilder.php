@@ -125,4 +125,32 @@ class QueryBuilder
 
         return $status;
     }
+    private function InsertDataOfCompany($company){
+        $name = $company->GetName();
+        $address = $company->GetAddress();
+        $country = $company->GetCountry();
+        $street = $company->GetStreet();
+        $city = $company->GetCity();
+        $nip = $company->GetNip();
+        $email = $company->GetEmail();
+
+
+        $queryInsertCompany = sprintf("Insert into company ('name','address','street','city','country','nip','email') values ('{%name}' ,
+            '{%address}' ,
+            '{%street}' ,
+            '{%city}' ,
+            '{%country}' ,
+            '{%nip}' ,
+            '{%email}');"
+            );
+    
+        try {
+            $result = $this->pdo->prepare($queryInsertCompany); 
+            $result->execute(); 
+            return true;                    
+        } catch(PDOException $e) {
+            die($e->getMessage());
+            return false;
+        }
+    }
 }

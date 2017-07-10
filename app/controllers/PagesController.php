@@ -35,4 +35,8 @@ class PagesController
     {
         return view('postlogin');
     }
+    public function add_company()
+    {
+        return view('add_company');
+    }
 }
