@@ -58,21 +58,34 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
             $statement->execute($parameters);
         } catch (\Exception $e) {
-            return false;
             die("Exception occurred: {$e}");
+
+            return false;
         }
+
+        return true;
     }
 
 
-    public function updateTable($table, $condition, $values)
+    public function updateTable ($table, $conditions, $values)
     {
 
-        $conditionArray = array_map (function($key){
+        $valuesArray = array_map ( function ($key) {
+            return "{$key} = :{$key}";
+        }, array_keys ( $values ) );
 
-        });
+
+        $conditionArray = array_map (function($key){
+            return "{$key} = :{$key}";
+        }, array_keys ( $conditions ) );
 
         $query = sprintf("update %s set %s where %s",
-            $table, );
+            $table, implode ( ', ', $valuesArray ), implode ( ' and ', $conditionArray ) );
+
+        $statement = $this->pdo->prepare ( $query );
+
+
+        var_dump ( $statement );
 
     }
 
