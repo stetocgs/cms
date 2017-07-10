@@ -3,12 +3,21 @@
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/users">Manage Users</a></li>
-        <?php if(false === loginStatus ()): ?>
-            <li><a href = "/register">Register</a></li>
-            <li><a href = "/login">Login</a></li>
+
+        <?php if (true): ?>
+            <?php if (true): ?>
+
+                <li><a href="/users">Manage Users</a></li>
+
+            <?php endif; ?>
+
+            <li><a href="/contacts">Contacts</a></li>
+            <li><a href="/add_company">Add company</a></li>
+
         <?php else: ?>
-            <li><a href = "/add_company">Add company</a></li>
-        <?php endif;?>
+
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        <?php endif; ?>
     </ul>
 </nav>
