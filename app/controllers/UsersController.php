@@ -82,8 +82,8 @@
             return PHP_SESSION_ACTIVE == session_status ()
                    && App::get ( 'database' )
                        ->rowExists ( 'users', [
-                           'username'     => $_SESSION[ 'my_data' ][ 'username' ],
-                           'session_hash' => $_SESSION[ 'my_data' ][ 'session_hash' ]
+                           'username'     => $_SESSION[ 'my_data' ][ 'username' ] ?? '',
+                           'session_hash' => $_SESSION[ 'my_data' ][ 'session_hash' ] ?? ''
                        ] );
         }
 
