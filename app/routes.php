@@ -13,4 +13,4 @@ $router->post('login', 'UsersController@login');
 $router->post('logout', 'UsersController@logout');
 
 $router->get('add_company', 'PagesController@add_company');
-$router->post('add_company', 'AddCompanyController@addingCompany');
+$router->post('add_company', 'CompanyController@addingCompany');

@@ -1,19 +1,21 @@
 <?php
 
-
+namespace App;
 
 class Company {
 	
 	private $name;
 	private $address;
+	private $street;
 	private $city;
 	private $country;
 	private $email;
 	private $nip;
 
-	public function __construct($name, $address, $city, $country, $nip, $email) {
+	public function __construct($name, $address, $street, $city, $country, $nip, $email) {
 		$this->name =$name;
 		$this->address = $address;
+		$this->street = $street;
 		$this->city = $city;
 		$this->country = $country;
 		$this->nip = $nip;
@@ -34,6 +36,14 @@ class Company {
 
 	public function setAddress(string $address) {
 		$this->address = $address;
+	}
+
+	public function getStreet() {
+		return $this->street;
+	}
+
+	public function setStreet(string $street) {
+		$this->street = $street;
 	}
 	public function getCity() {
 		return $this->city;
