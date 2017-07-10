@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\AddCompanyController' => $baseDir . '/app/controllers/AddCompanyController.php',
     'App\\Controllers\\PagesController' => $baseDir . '/app/controllers/PagesController.php',
     'App\\Controllers\\UsersController' => $baseDir . '/app/controllers/UsersController.php',
     'App\\Core\\App' => $baseDir . '/core/App.php',
@@ -14,6 +15,7 @@ return array(
     'App\\Core\\RegexpValidator' => $baseDir . '/core/RegexpValidator.php',
     'App\\Core\\Request' => $baseDir . '/core/Request.php',
     'App\\Core\\Router' => $baseDir . '/core/Router.php',
+    'App\\Dto\\Company' => $baseDir . '/app/Company.php',
     'ComposerAutoloaderInit985c7d276903f9086d1e60b37a125e04' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit985c7d276903f9086d1e60b37a125e04' => $vendorDir . '/composer/autoload_static.php',

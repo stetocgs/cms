@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\App;
-use App\app\Company;
+use App\Company;
 
 
 class AddCompanyController{
@@ -32,7 +32,7 @@ class AddCompanyController{
 			strip_tags($email)
 			);
 	if (InsertDataOfCompany($company)) {
-		return $this->viewResolver->view('add_company');
+		return view('add_company');
 
 	}
 
