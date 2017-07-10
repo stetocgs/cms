@@ -75,14 +75,15 @@ class QueryBuilder
         }, array_keys ( $values ) );
 
 
-        $conditionArray = array_map (function($key){
-            return "{$key} = :{$key}";
-        }, array_keys ( $conditions ) );
+        $conditionArray = array_map (function($key, $value){
+            return "{$key} = \'{$value}\'";
+        }, array_keys ( $conditions ), array_values ($conditions) );
 
         $query = sprintf("update %s set %s where %s",
             $table, implode ( ', ', $valuesArray ), implode ( ' and ', $conditionArray ) );
 
         $statement = $this->pdo->prepare ( $query );
+        $statement->execute ($values);
 
 
         var_dump ( $statement );
