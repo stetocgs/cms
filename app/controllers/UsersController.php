@@ -55,7 +55,9 @@ class UsersController
             session_start ();
             $_SESSION['my_data']['username'] = $_POST['username'];
             $_SESSION['my_data']['session_hash'] = md5(rand().$_POST['username'].rand());
-            App::get ('database')->updateTable('users', $_POST['username'], [
+            App::get ( 'database' )->updateTable ( 'users', [
+                'username' => $_POST[ 'username' ]
+            ], [
                 'session_hash' => $_SESSION['my_data']['session_hash']
             ]);
         }

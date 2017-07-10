@@ -59,10 +59,7 @@ class QueryBuilder
             $statement->execute($parameters);
         } catch (\Exception $e) {
             die("Exception occurred: {$e}");
-
-            return false;
         }
-
         return true;
     }
 
@@ -76,7 +73,7 @@ class QueryBuilder
 
 
         $conditionArray = array_map (function($key, $value){
-            return "{$key} = \'{$value}\'";
+            return "{$key} = '{$value}'";
         }, array_keys ( $conditions ), array_values ($conditions) );
 
         $query = sprintf("update %s set %s where %s",
@@ -84,9 +81,6 @@ class QueryBuilder
 
         $statement = $this->pdo->prepare ( $query );
         $statement->execute ($values);
-
-
-        var_dump ( $statement );
 
     }
 
