@@ -5,6 +5,7 @@
     use App\Core\App;
     use App\Core\RegexpValidator;
 
+
     class UsersController
     {
         public function index ()
@@ -84,5 +85,14 @@
                            'username'     => $_SESSION[ 'my_data' ][ 'username' ],
                            'session_hash' => $_SESSION[ 'my_data' ][ 'session_hash' ]
                        ] );
+        }
+
+        static public function isAdmin ()
+        {
+            return App::get ( 'database' )->rowExists ( 'users', [
+                'username'     => $_SESSION[ 'my_data' ][ 'username' ],
+                'session_hash' => $_SESSION[ 'my_data' ][ 'session_hash' ],
+                'user_group'   => 1
+            ] );
         }
     }
