@@ -90,18 +90,19 @@ class QueryBuilder
      *
      * @return bool
      */
-    public function validateUser($table, $parameters)
+    public function rowExists ($table, $parameters)
     {
         $paramArray = array_map(function ($key){
             return "{$key} = :{$key}";
         }, array_keys($parameters));
 
-        $sqlString = sprintf('select id from %s where %s',
+        $sqlString = sprintf ( 'select * from %s where %s',
             $table, implode(' and ', $paramArray));
 
         $query = $this->pdo->prepare ($sqlString);
         $query->execute ($parameters);
-        return 1 === $query->rowCount ();
+
+        return 0 < $query->rowCount ();
     }
 
     /**
@@ -112,11 +113,12 @@ class QueryBuilder
      */
     public function doLogin ($username, $password)
     {
-        $status = $this->validateUser('users', [
-            'username' => $username,
-            'password' => $password
-        ]);
-
-        return $status;
+        return $this->rowExists ( 'users', compact ( 'username', 'password' ) );
     }
+
+    public function verifySessionHash ($username, $session_hash)
+    {
+        return $this->rowExists ( 'users', compact ( 'username', 'session_hash' ) );
+    }
+
 }

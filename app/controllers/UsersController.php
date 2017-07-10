@@ -7,25 +7,24 @@ use App\Core\RegexpValidator;
 
 class UsersController
 {
-    public function index()
+    public function index ()
     {
-        $users = App::get('database')->selectAll('users');
+        $users = App::get ( 'database' )->selectAll ( 'users' );
 
-        return view('users', compact('users'));
+        return view ( 'users', compact ( 'users' ) );
     }
 
-    public function register()
+    public function register ()
     {
 
 
-        $isInputValid = 0 === strcmp($_POST['password_rep'], $_POST['password'])
-                        && RegexpValidator::validatePassword ($_POST['password'])
-                        && RegexpValidator::validateUsername ($_POST['username'])
-                        && RegexpValidator::validateEmail ($_POST['email']);
+        $isInputValid = 0 === strcmp ( $_POST[ 'password_rep' ], $_POST[ 'password' ] )
+                        && RegexpValidator::validatePassword ( $_POST[ 'password' ] )
+                        && RegexpValidator::validateUsername ( $_POST[ 'username' ] )
+                        && RegexpValidator::validateEmail ( $_POST[ 'email' ] );
 
 
-        if($isInputValid)
-        {
+        if ($isInputValid) {
             App::get ( 'database' )->insert ( 'users', [
                 'username' => $_POST[ 'username' ],
                 'password' => $_POST[ 'password' ],
@@ -34,37 +33,36 @@ class UsersController
 
             return redirect ( 'login' );
 
-        }else{
+        } else {
 
-           return view('register', [
-              'userMessage' => 'Some register fields are not valid, try again!'
-           ]);
+            return view ( 'register', [
+                'userMessage' => 'Some register fields are not valid, try again!'
+            ] );
 
         }
     }
 
-    public function login()
+    public function login ()
     {
-        $isInputValid = RegexpValidator::validateUsername ($_POST['username'])
-                        && RegexpValidator::validatePassword ($_POST['password']);
+        $isInputValid = RegexpValidator::validateUsername ( $_POST[ 'username' ] )
+                        && RegexpValidator::validatePassword ( $_POST[ 'password' ] );
 
-        $loginStatus = $isInputValid && App::get('database')->doLogin($_POST['username'], $_POST['password']);
+        $loginStatus = $isInputValid && App::get ( 'database' )->doLogin ( $_POST[ 'username' ], $_POST[ 'password' ] );
 
-        if($loginStatus)
-        {
+        if ($loginStatus) {
             session_start ();
-            $_SESSION['my_data']['username'] = $_POST['username'];
-            $_SESSION['my_data']['session_hash'] = md5(rand().$_POST['username'].rand());
+            $_SESSION[ 'my_data' ][ 'username' ] = $_POST[ 'username' ];
+            $_SESSION[ 'my_data' ][ 'session_hash' ] = md5 ( rand () . $_POST[ 'username' ] . rand () );
             App::get ( 'database' )->updateTable ( 'users', [
                 'username' => $_POST[ 'username' ]
             ], [
-                'session_hash' => $_SESSION['my_data']['session_hash']
-            ]);
+                'session_hash' => $_SESSION[ 'my_data' ][ 'session_hash' ]
+            ] );
         }
 
-        return view('login',[
+        return view ( 'login', [
             'loginStatus' => $loginStatus ? 'Success!' : 'Wrong username or password, try again!'
-        ]);
+        ] );
     }
 
     public function logout()
