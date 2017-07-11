@@ -16,7 +16,7 @@
 			Country:
 			<li><input type="text" name="country_company" required></li><br>
 			NIP:
-			<li><input type="text" name="NIP_company" pattern= "[0-9]"pattern= "[0-9]" required></li><br>
+			<li><input type="text" name="NIP_company" maxlength="10" pattern="[1-9] required" ></li><br>
 			Email of the company:
 			<li><input type="email" name="email_company" required></li><br>
 			<input value="checkbox" type="checkbox" required> Zgoda na przetwarzanie informacji.<br>

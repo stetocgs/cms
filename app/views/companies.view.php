@@ -3,12 +3,13 @@
     <h1>All Companies</h1>
 
 <?php foreach ($company as $val) : ?>
-    <td><?= $val->name;  ?></td> | 
-    <td><?=$val->address; ?></td> | 
-    <td><?= $val->street; ?></td> | 
-    <td><?= $val->city; ?></td> | 
-    <td><?= $val->country; ?></td> | 
-    <td><?= $val->email; ?></td>
+    <td><?= $val->name; echo " |"; ?></td>
+    <td><?= $val->address; echo " |";?></td>
+    <td><?= $val->street; echo " |";?></td>
+    <td><?= $val->city; echo " |";?></td>
+    <td><?= $val->country; echo " |";?></td>
+    <td><?= $val->email; echo " |";?></td>
+    <br>
 
 <?php endforeach; ?>
 

@@ -5,6 +5,6 @@ create table company
 		street varchar(50), 
 		city varchar(50), 
 		country varchar(50), 
-		nip integer, 
+		nip varchar(10), 
 		email varchar(50) PRIMARY KEY
 	);

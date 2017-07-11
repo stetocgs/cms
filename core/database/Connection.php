@@ -16,10 +16,12 @@ class Connection
     {
         try {
             return new PDO(
-                $config['connection'].';dbname='.$config['name'],
+                $config['connection'].';dbname='.$config['name'].';charset='.$config['charset'],
                 $config['username'],
                 $config['password'],
                 $config['options']
+                // $config['charset']
+
             );
         } catch (PDOException $e) {
             die($e->getMessage());
