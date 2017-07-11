@@ -3,10 +3,17 @@
 namespace App\Controllers;
 
 use App\Core\App;
-use App\app\model\Company;
+use App\App\Model\Company;
 
+class CompanyController
+{
 
-class AddCompanyController{
+    public function showcompanies()
+    {
+        $company = App::get('database')->selectAll('company');
+
+        return view('companies', compact('company'));
+    }
 
 
 	// public function __construct($viewResolver,
@@ -14,7 +21,9 @@ class AddCompanyController{
 	// 	$pdo = $queryBuilder->getPDO();
 
 	// 	}
-	public function addingCompany(){
+	public function addingCompany()
+	{
+		//echo 'here';
 		$name = $_POST['name_company'];	
 		$address = $_POST['address_company'];
 		$street = $_POST['street_company'];
@@ -23,49 +32,49 @@ class AddCompanyController{
 		$nip = $_POST['NIP_company'];
 		$email = $_POST['email_company'];
 
+		
+			$company = new Company(
+					strip_tags($name),
+					strip_tags($address),
+					strip_tags($street),
+					strip_tags($city),
+					strip_tags($country),
+					strip_tags($nip),
+					strip_tags($email)
+					);
 
-	$company = new Company(
-			strip_tags($name),
-			strip_tags($address),
-			strip_tags($street),
-			strip_tags($city),
-			strip_tags($country),
-			strip_tags($nip),
-			strip_tags($email)
-			);
+		// 	if (InsertDataOfCompany($company)) {
+		// 		return view('add_company');
 
-	if (InsertDataOfCompany($company)) {
-		return view('add_company');
-
-	}
-
-
-
-}
-    private function InsertDataOfCompany($company){
-        $name = $company->GetName();
-        $address = $company->GetAddress();
-        $street = $company->GetStreet();
-        $city = $company->GetCity();
-        $country = $company->GetCountry();
-        $nip = $company->GetNip();
-        $email = $company->GetEmail();
+		// 	}
 
 
-		insert();
-    
-		    App::get ( 'database' )->insert ( 'company', [
-                'name' => $name,
-                'address' => $address,
-                'street' => $street,
-                'city' => $city,
-                'country' => $country,
-                'nip' => $nip,
-                'email' => $email
-            ] );
 
-            return redirect ( 'login' );
-    }
+		// }
+		//     private function InsertDataOfCompany($company){
+		//         $name = $company->GetName();
+		//         $address = $company->GetAddress();
+		//         $street = $company->GetStreet();
+		//         $city = $company->GetCity();
+		//         $country = $company->GetCountry();
+		//         $nip = $company->GetNip();
+		//         $email = $company->GetEmail();
+
+
+		// 		insert();
+		    
+		// 		    App::get ( 'database' )->insert ( 'company', [
+		//                 'name' => $name,
+		//                 'address' => $address,
+		//                 'street' => $street,
+		//                 'city' => $city,
+		//                 'country' => $country,
+		//                 'nip' => $nip,
+		//                 'email' => $email
+		//             ] );
+
+		//             return redirect ( 'add_company' );
+   }
 
 }
 

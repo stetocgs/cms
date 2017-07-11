@@ -39,4 +39,8 @@ class PagesController
     {
         return view('add_company');
     }
+    public function companies()
+    {
+        return view('companies');
+    }
 }

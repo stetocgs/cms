@@ -43,7 +43,7 @@ class Company {
 	}
 
 	public function setStreet(string $street) {
-		$this->street = $street;
+		$this->street = $email;
 	}
 	public function getCity() {
 		return $this->city;

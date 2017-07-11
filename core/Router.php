@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Core;
-use Exception;
+
+
 
 class Router
 {
@@ -78,9 +79,11 @@ class Router
      */
     protected function callAction($controller, $action)
     {
+       // die(var_dump($controller, $action));
         $controller = "App\\Controllers\\{$controller}";
+        //var_dump($controller, $action);
         $controller = new $controller;
-
+        //var_dump($controller);
         if (! method_exists($controller, $action)) {
             throw new Exception(
                 "{$controller} does not respond to the {$action} action."

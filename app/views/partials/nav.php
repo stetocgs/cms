@@ -9,6 +9,7 @@
             <li><a href = "/login">Login</a></li>
         <?php else: ?>
             <li><a href = "/add_company">Add company</a></li>
+            <li><a href = "/companies">Show companies</a></li>
         <?php endif;?>
     </ul>
 </nav>
