@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Core\Database;
-
 use PDO;
 
 class QueryBuilder
@@ -59,7 +58,7 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
             $statement->execute($parameters);
         } catch (\Exception $e) {
-            die("Exception occurred: {$e}");
+           // die("Exception occurred: {$e}");
 
             return false;
         }
