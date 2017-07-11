@@ -35,8 +35,9 @@ class PagesController
     {
         return view('postlogin');
     }
-    public function add_company()
+
+    public function contacts ()
     {
-        return view('add_company');
+        return view('contacts');
     }
 }

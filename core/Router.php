@@ -58,8 +58,6 @@ class Router
      */
     public function direct($uri, $requestType)
     {
-       // var_dump($uri, $requestType, array_key_exists($uri, $this->routes[$requestType]));
-       // var_dump(...explode('@', $this->routes[$requestType][$uri]));
         if (array_key_exists($uri, $this->routes[$requestType])) {
             return $this->callAction(
                 ...explode('@', $this->routes[$requestType][$uri])

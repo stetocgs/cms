@@ -9,5 +9,8 @@ return [
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
+    ],
+    'session'  => [
+        'storage_name' => 'my_data'
     ]
 ];

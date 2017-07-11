@@ -3,9 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file:$APPLICATION_HOME_DIR$//$PROJECT_DIR$/.idea/CMS.iml" filepath="$PROJECT_DIR$/.idea/CMS.iml" />
-      <module fileurl="file:$APPLICATION_HOME_DIR$/$PROJECT_DIR$/.idea/CMS.iml" filepath="home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" />
-      <module fileurl="file:$APPLICATION_HOME_DIR$//file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" filepath="file:$PROJECT_DIR$/.idea/CMS.iml" />
       <module fileurl="file:$APPLICATION_HOME_DIR$//file:/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" filepath="file:$APPLICATION_HOME_DIR$/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" />
+      <module fileurl="file:$APPLICATION_HOME_DIR$//file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" filepath="file:$PROJECT_DIR$/.idea/CMS.iml" />
+      <module fileurl="file:$APPLICATION_HOME_DIR$//file:/file:/file:/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" filepath="file:$APPLICATION_HOME_DIR$/file:/file:/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" />
+      <module fileurl="file:$APPLICATION_HOME_DIR$/$PROJECT_DIR$/.idea/CMS.iml" filepath="home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" />
+      <module fileurl="file:$APPLICATION_HOME_DIR$//file:/file:/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" filepath="file:$APPLICATION_HOME_DIR$/file:/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" />
+      <module fileurl="file:$APPLICATION_HOME_DIR$//file:/file:/file:/file:/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" filepath="file:$APPLICATION_HOME_DIR$/file:/file:/file:/file:/home/stefan/PhpstormProjects/CMS/.idea/CMS.iml" />
     </modules>
   </component>
 </project>

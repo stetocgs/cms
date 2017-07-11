@@ -59,14 +59,16 @@ class QueryBuilder
             $statement->execute($parameters);
         } catch (\Exception $e) {
             die("Exception occurred: {$e}");
-
-            return false;
         }
-
         return true;
     }
 
 
+    /**
+     * @param $table
+     * @param $conditions
+     * @param $values
+     */
     public function updateTable ($table, $conditions, $values)
     {
 
@@ -76,7 +78,7 @@ class QueryBuilder
 
 
         $conditionArray = array_map (function($key, $value){
-            return "{$key} = \'{$value}\'";
+            return "{$key} = '{$value}'";
         }, array_keys ( $conditions ), array_values ($conditions) );
 
         $query = sprintf("update %s set %s where %s",
@@ -84,9 +86,6 @@ class QueryBuilder
 
         $statement = $this->pdo->prepare ( $query );
         $statement->execute ($values);
-
-
-        var_dump ( $statement );
 
     }
 
@@ -96,18 +95,19 @@ class QueryBuilder
      *
      * @return bool
      */
-    public function validateUser($table, $parameters)
+    public function rowExists ($table, $parameters): bool
     {
         $paramArray = array_map(function ($key){
             return "{$key} = :{$key}";
         }, array_keys($parameters));
 
-        $sqlString = sprintf('select id from %s where %s',
+        $sqlString = sprintf ( 'select * from %s where %s',
             $table, implode(' and ', $paramArray));
 
         $query = $this->pdo->prepare ($sqlString);
         $query->execute ($parameters);
-        return 1 === $query->rowCount ();
+
+        return 0 < $query->rowCount ();
     }
 
     /**
@@ -118,39 +118,18 @@ class QueryBuilder
      */
     public function doLogin ($username, $password)
     {
-        $status = $this->validateUser('users', [
-            'username' => $username,
-            'password' => $password
-        ]);
-
-        return $status;
+        return $this->rowExists ( 'users', compact ( 'username', 'password' ) );
     }
-    private function InsertDataOfCompany($company){
-        $name = $company->GetName();
-        $address = $company->GetAddress();
-        $country = $company->GetCountry();
-        $street = $company->GetStreet();
-        $city = $company->GetCity();
-        $nip = $company->GetNip();
-        $email = $company->GetEmail();
 
-
-        $queryInsertCompany = sprintf("Insert into company ('name','address','street','city','country','nip','email') values ('{%name}' ,
-            '{%address}' ,
-            '{%street}' ,
-            '{%city}' ,
-            '{%country}' ,
-            '{%nip}' ,
-            '{%email}');"
-            );
-    
-        try {
-            $result = $this->pdo->prepare($queryInsertCompany); 
-            $result->execute(); 
-            return true;                    
-        } catch(PDOException $e) {
-            die($e->getMessage());
-            return false;
-        }
+    /**
+     * @param $username
+     * @param $session_hash
+     *
+     * @return bool
+     */
+    public function verifySessionHash ($username, $session_hash)
+    {
+        return $this->rowExists ( 'users', compact ( 'username', 'session_hash' ) );
     }
+
 }
