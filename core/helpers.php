@@ -13,6 +13,7 @@ function view($name, $data = [])
 //    require('app/views/')
 //    return require "app/views/{$name}.view.php";
 //    return require("/public/html/{$name}.view.php");
+    extract($data);
     return html_view($name, $data);
 }
 

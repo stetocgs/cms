@@ -11,9 +11,7 @@
     {
         public function index ()
         {
-            $users = App::get ( 'database' )->selectAll ( 'users' );
-
-            return view ( 'users', compact ( 'users' ) );
+            return view ( 'users' );
         }
 
         public function register ()
@@ -28,10 +26,14 @@
 
             if ($isInputValid) {
 
+                $salt = md5(rand().rand());
+                $hashed_password =  App::get('database')->hashPassword($_POST['password'], $salt);
+
                 App::get ( 'database' )->insert ( 'users', [
                     'username' => $_POST[ 'username' ],
-                    'password' => $_POST[ 'password' ],
-                    'email'    => $_POST[ 'email' ]
+                    'password' => $hashed_password,
+                    'email'    => $_POST[ 'email' ],
+                    'pass_salt' => $salt
                 ] );
 
                 return redirect ( 'login' );
@@ -47,13 +49,12 @@
 
         public function login ()
         {
-            App::setSessionHandler (new SessionHandler($_POST['username'], $_POST['password']));
-
-            if(App::isLogged() === true)
+            if(App::isLogged())
             {
                 return redirect('');
 
             }else {
+                App::setSessionHandler (new SessionHandler($_POST['username'], $_POST['password']));
 
                 return view('login', [
                     'callbackMessage' => 'Wrong username or password, try again!'

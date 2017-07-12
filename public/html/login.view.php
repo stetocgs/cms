@@ -1,11 +1,16 @@
 <?php require($_SERVER['DOCUMENT_ROOT'].'/app/views/partials/head.php'); ?>
 
+<?php if(\App\Core\App::isLogged()){
+    return redirect('');
+} ?>
+
+
 <div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
   <a href class="navbar-brand block m-t">Angulr</a>
   <div class="m-b-lg">
     <div class="wrapper text-center">
 
-      <strong> <?=$callbackMessage ?? 'Sign in to get in touch'; ?> </strong>
+      <strong> <?=$_POST['failed']  ?? 'Sign in to get in touch'; ?> </strong>
 
     </div>
 

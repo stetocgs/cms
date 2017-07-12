@@ -221,7 +221,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="table_datatable.html">
+                    <a href="contacts.view.php">
                       <span>Datatable</span>
                     </a>
                   </li>

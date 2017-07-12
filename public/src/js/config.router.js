@@ -123,7 +123,7 @@ angular.module('app')
               })
               .state('app.table.datatable', {
                   url: '/datatable',
-                  templateUrl: 'tpl/table_datatable.html'
+                  templateUrl: 'tpl/contacts.view.php'
               })
               .state('app.table.footable', {
                   url: '/footable',

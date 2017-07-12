@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Core\App;
+
 class PagesController
 {
     public function home()
@@ -23,7 +25,7 @@ class PagesController
 
     public function login ()
     {
-        return view('login');
+      return  view(App::isLogged() ? 'index' : 'login' );
     }
 
     public function register()

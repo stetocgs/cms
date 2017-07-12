@@ -110,6 +110,38 @@ class QueryBuilder
         return 0 < $query->rowCount ();
     }
 
+
+    /**
+     * @param $table
+     * @param $selected
+     * @param $checked
+     * @return mixed
+     */
+    public function selectOne($table, $selected, $checked)
+    {
+        $template = 'select %s from %s where %s';
+        $toSelect = implode(', ', $selected);
+        $toCheck = implode(' and ', array_map(function ($input) {
+            return "${input} = :${input}";
+        }, array_keys($checked)));
+        $sql = sprintf($template, $toSelect, $table,  $toCheck);
+        $query = $this->pdo->prepare($sql);
+        $query->execute($checked);
+
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+    /**
+     * @param $pass
+     * @param $salt
+     * @return string
+     */
+    public function hashPassword($pass, $salt)
+    {
+        return md5($salt.$pass.$salt);
+    }
+
     /**
      * @param $username
      * @param $password
@@ -118,7 +150,12 @@ class QueryBuilder
      */
     public function doLogin ($username, $password)
     {
-        return $this->rowExists ( 'users', compact ( 'username', 'password' ) );
+        $salt = $this->selectOne('users', ['pass_salt'], ['username' => $username])['pass_salt'];
+        $salted_pass = $this->hashPassword($password,$salt);
+        return $this->rowExists ( 'users', [
+            'username' => $username,
+            'password' => $salted_pass
+        ] );
     }
 
     /**

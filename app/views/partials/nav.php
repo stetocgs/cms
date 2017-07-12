@@ -9,7 +9,7 @@
             <i class="glyphicon glyphicon-align-justify"></i>
         </button>
         <!-- brand -->
-        <a href="#/" class="navbar-brand text-lt">
+        <a href="/" class="navbar-brand text-lt">
             <i class="fa fa-btc"></i>
             <img src="/public/html/img/logo.png" alt="." class="hide">
             <span class="hidden-folded m-l-xs">Angulr</span>
@@ -36,7 +36,7 @@
         <ul class="nav navbar-nav hidden-sm">
             <li class="dropdown pos-stc">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                    <span>Mega</span>
+                    <span>Quick links</span>
                     <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu wrapper w-full bg-white">
@@ -47,13 +47,13 @@
                                 <div class="col-xs-6">
                                     <ul class="list-unstyled l-h-2x">
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                            <a href = "/"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Main Page</a>
                                         </li>
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Post</a>
+                                            <a href = "/login"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign in</a>
                                         </li>
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Search</a>
+                                            <a href = "/register"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign up</a>
                                         </li>
                                         <li>
                                             <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Invoice</a>
@@ -63,13 +63,13 @@
                                 <div class="col-xs-6">
                                     <ul class="list-unstyled l-h-2x">
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Price</a>
+                                            <a href = "/"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Main page</a>
                                         </li>
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Lock screen</a>
+                                            <a href = "/login"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign in</a>
                                         </li>
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign in</a>
+                                            <a href = "/register"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign up</a>
                                         </li>
                                         <li>
                                             <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign up</a>

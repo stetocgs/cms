@@ -1,4 +1,10 @@
+
+<?php if(\App\Core\App::isLogged()){
+    redirect('');
+} ?>
+
 <?php require ('partials/head.php'); ?>
+<?php require ('partials/nav.php'); ?>
 <!---->
 <!---->
 <!--    --><?php //if(session_status () == PHP_SESSION_ACTIVE && !(\App\Core\App::isLogged())): ?>
@@ -14,6 +20,7 @@
 <!--        <h2> Login successful! </h2>-->
 <!--    --><?php //endif; ?>
 <!---->
+
 
 <?php html_view('login') ?>
 
