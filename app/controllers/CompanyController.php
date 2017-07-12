@@ -12,11 +12,34 @@ class CompanyController
     public function showcompanies()
     {
         $company = App::get('database')->selectAll('company');
-
-        return view('companies', compact('company'));
+       // var_dump($company);
+$fp = fopen('public/html/api/results.json', 'w');
+fwrite($fp, '{ "aaData":');
+fwrite($fp, json_encode($company));
+fwrite($fp, '}');
+fclose($fp);
+        //return view('companies', compact('company'));
+    return view('/companies');
     }
 
 
+// $response = array();
+// $posts = array();
+// $result=mysql_query($sql);
+// while($row=mysql_fetch_array($result)) 
+// { 
+// $title=$row['title']; 
+// $url=$row['url']; 
+
+// $posts[] = array('title'=> $title, 'url'=> $url);
+
+// } 
+
+// $response['posts'] = $posts;
+
+// $fp = fopen('results.json', 'w');
+// fwrite($fp, json_encode($response));
+// fclose($fp);
 
     public function addingCompany()
     {

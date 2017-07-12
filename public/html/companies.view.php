@@ -393,8 +393,8 @@
       Data of companies
     </div>
     <div class="table-responsive">
-      <!-- <table ui-jq="dataTable" ui-options="{
-          sAjaxSource: 'api/datatable.json',
+        <table ui-jq="dataTable"  ui-options="{
+          sAjaxSource: 'public/html/api/results.json',
           aoColumns: [
             { mData: 'name' },
             { mData: 'address' },
@@ -403,9 +403,7 @@
             { mData: 'country' },
             { mData: 'email' }
           ]
-        }" 
-        class="table table-striped b-t b-b"> -->
-        <table ui-jq="dataTable" class="table table-striped b-t b-b">
+        }" class="table table-striped b-t b-b">
         <thead>
           <tr>
             <th  style="width:20%">Name</th>
@@ -415,7 +413,7 @@
             <th  style="width:15%">Country</th>
             <th  style="width:15%">Email</th>
           </tr>
-		 <?php foreach ($company as $val) : ?>
+		 <!-- <?php foreach ($company as $val) : ?>
 			<tr>
 			    <td><?= $val->name; ?></td>
 			    <td><?= $val->address; ?></td>
@@ -424,7 +422,7 @@
 			    <td><?= $val->country; ?></td>
 			    <td><?= $val->email; ?></td>
 			</tr>
-		<?php endforeach; ?>
+		<?php endforeach; ?> -->
         </thead>
         <tbody>
         </tbody>
@@ -452,8 +450,8 @@
 
 </div>
 
-<!-- <script src="../libs/jquery/jquery/dist/jquery.js"></script>
-<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<!-- <script src="public/html/../libs/jquery/jquery/dist/jquery.js"></script>
+<script src="public/html/../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="js/ui-load.js"></script>
 <script src="js/ui-jp.config.js"></script>
 <script src="js/ui-jp.js"></script>
