@@ -207,12 +207,12 @@
                   </span>
                   <b class="label bg-primary pull-right">2</b>
                   <i class="glyphicon glyphicon-list"></i>
-                  <span>Table</span>
+                  <span>Company</span>
                 </a>
                 <ul class="nav nav-sub dk">
                   <li class="nav-sub-header">
                     <a href>
-                      <span>Table</span>
+                      <span>Company</span>
                     </a>
                   </li>
                   <li>
@@ -228,11 +228,6 @@
                                     <li>
                     <a href="/company_v2">
                       <span>Add company v2</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="table_footable.html">
-                      <span>Footable</span>
                     </a>
                   </li>
                 </ul>

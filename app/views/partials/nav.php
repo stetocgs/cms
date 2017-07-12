@@ -50,13 +50,13 @@
                                             <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
                                         </li>
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Post</a>
+                                            <a href="/companies"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Show companies</a>
                                         </li>
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Search</a>
+                                            <a href="/company"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Add company</a>
                                         </li>
                                         <li>
-                                            <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Invoice</a>
+                                            <a href="/company_v2"><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Add company v2</a>
                                         </li>
                                     </ul>
                                 </div>
