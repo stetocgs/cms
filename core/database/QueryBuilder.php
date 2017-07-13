@@ -74,11 +74,22 @@ class QueryBuilder
     }
 
 
+
     /**
      * @param $table
      * @param $conditions
      * @param $values
      */
+
+    public function getContactById($contacatid){
+        $statement = $this->pdo->prepare("select * from contacts where id='$contacatid'");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+
+    }
+
     public function updateTable ($table, $conditions, $values)
     {
 

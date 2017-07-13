@@ -4,7 +4,6 @@
 
 
 
-
     <!-- aside -->
     <aside id="aside" class="app-aside hidden-xs bg-dark">
         <div class="aside-wrap">
@@ -377,47 +376,45 @@
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
-    <div class="app-content-body ">
+        <div class="app-content-body ">
 
 
-    <div class="bg-light lter b-b wrapper-md">
-        <h1 class="m-n font-thin h3">Form Elements</h1>
-    </div>
-    <div class="wrapper-md" ng-controller="FormDemoCtrl">
-    <div class="row">
-    <div class="col-sm-6">
-        <div class="panel panel-default">
-            <div class="panel-heading font-bold">Dodaj kontakt</div>
-            <div class="panel-body">
-                <form role="form" method="POST" action="/addcontact">
-                    <div class="form-group">
-                        <label>Nazwa firmy</label>
-                        <input type="text" class="form-control" placeholder="nazwa firmy" name="companyname">
-                    </div>
-                    <div class="form-group">
-                        <label>Imie i nazwisko</label>
-                        <input type="text" class="form-control" placeholder="imie i nazwisko" name="username">
-                    </div>   <div class="form-group">
-                        <label>Stanowisko</label>
-                        <input type="text" class="form-control" placeholder="stanowisko " name="position">
-                    </div>   <div class="form-group">
-                        <label>Telefon</label>
-                        <input type="text" class="form-control" placeholder="numer telefonnu" name="phonenumber">
-                    </div>                    <div class="form-group">
-                        <label>Email </label>
-                        <input type="email" class="form-control" placeholder="adres email" name="email">
-                    </div>
-
-                    <div class="checkbox">
-                        <label class="i-checks">
-                            <input type="checkbox" checked disabled><i></i> Check me out
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                </form>
+            <div class="bg-light lter b-b wrapper-md">
+                <h1 class="m-n font-thin h3">Form Elements</h1>
             </div>
-        </div>
-    </div>
+            <div class="wrapper-md" ng-controller="FormDemoCtrl">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading font-bold">Dodaj kontakt</div>
+                            <div class="panel-body">
+                                <form role="form" method="POST" action="/editContact">
+                                    <div class="form-group">
+                                        <label>Nazwa firmy</label>
+                                        <input type="text" class="form-control" placeholder="nazwa firmy" name="companyname" value="<?=($contact[0]->companyname);?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Imie i nazwisko</label>
+                                        <input type="text" class="form-control" placeholder="imie i nazwisko" name="username" value="<?=($contact[0]->username);?>">
+                                    </div>   <div class="form-group">
+                                        <label>Stanowisko</label>
+                                        <input type="text" class="form-control" placeholder="stanowisko " name="position" value="<?=($contact[0]->position);?>" >
+                                    </div>   <div class="form-group">
+                                        <label>Telefon</label>
+                                        <input type="text" class="form-control" placeholder="numer telefonnu" name="phonenumber" value="<?=($contact[0]->phonenumber);?>">
+                                    </div>                    <div class="form-group">
+                                        <label>Email </label>
+                                        <input type="email" class="form-control" placeholder="adres email" name="email" value="<?=($contact[0]->email);?>">
+                                    </div>
+                                    <div>
+                                        <input type="hidden" value="<?=$_GET['id'] ?? '0'; ?>" name="id">
+                                    </div>
+                                    <button type="Save" class="btn btn-sm btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
 
 

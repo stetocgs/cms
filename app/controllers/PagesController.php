@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Core\App;
+
+
 class PagesController
 {
     public function home()
@@ -37,7 +40,20 @@ class PagesController
     }
     public function addContact()
     {
-        return view('addcontact');
+        if(App::isLogged())
+        return view('/addcontact');
+
+    else {
+        return view('/login') ;
+    }
+    }
+    public function editContact()
+    {
+        if(App::isLogged())
+        return view('/edit-contact');
+    else {
+        return view('/login') ;
+    }
     }
 
 

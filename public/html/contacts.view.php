@@ -378,52 +378,84 @@
   <!-- content -->
   <div id="content" class="app-content" role="main">
   	<div class="app-content-body ">
-	    
+
+
 
 <div class="bg-light lter b-b wrapper-md">
   <h1 class="m-n font-thin h3">Kontakty</h1>
 </div>
-<div class="wrapper-md">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Moje kontakty
-    </div>
 
 
+        <div class="wrapper-md">
 
-    <div class="table-responsive">
-      <table ui-jq="dataTable" ui-options="{
-          sAjaxSource: 'public/html/usersdata/contacts<?=$userid[0];?>.json',
+            <div class="panel panel-default">
 
+
+                <div class="panel-heading">
+                    Footable - make HTML tables on smaller devices look awesome
+                </div>
 
 
 
 
-          aoColumns: [
-            { mData: 'username' },
-            { mData: 'companyname' },
-            { mData: 'position' },
-            { mData: 'phonenumber' },
-            { mData: 'email' }
-          ]
-        }" class="table table-striped b-t b-b">
-        <thead>
-          <tr>
-            <th  style="width:20%">Nazwa firmy</th>
-            <th  style="width:25%">Imie i nazwisko</th>
-            <th  style="width:25%">Stanowisko</th>
-              <th  style="width:15%">Telefon</th>
-              <th  style="width:15%">E-mail</th>
+                <div>
 
-          </tr>
-        </thead>
-        <tbody>
+                    <table class="table" ui-jq="footable"  data-type="html" data-paging="true" data-sorting="true" data-filtering="true"  >
+                    <thead>
+                        <tr >
+                            <th data-breakpoints="xs">Nazwa kontaktu</th>
+                            <th>Nazwa firmy</th>
+                            <th>Pozycja</th>
+                            <th data-breakpoints="xs">Numer telefonu</th>
+                            <th data-field="action" data-breakpoints="xs sm">Adres email</th>
+                            <th data-field="action" data-formatter="actionFormatter" data-events="actionEvents">Action</th>
+                        </tr>
 
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+
+
+
+                        <tbody>
+                        <?php $ids = []; ?>
+                        <?php foreach ($contactslist as $contact) : ?>
+
+                            <?php array_push($ids, $contact->id); ?>
+
+                        <div class="tableitem">
+                            <tr>
+                                <td ><?=$contact->username?></td>
+                                <td><?=$contact->companyname?></td>
+                                <td><?=$contact->position?></td>
+                                <td><?=$contact->phonenumber?> </td>
+
+                                <td>
+                                    <button type="button" data-url="">Load rows 7501-10000</button>
+                                </td>
+
+                                <td class="kontakt<?=$contact->id?>"></td>
+                            </tr>
+                        </div>
+
+                        <?php endforeach; ?></td>
+
+                        <script>
+
+                            function updateButtons() {
+                                var php_ids = [<?= implode(", ", $ids); ?>];
+                                var buttons = document.getElementsByClassName('edit ml10');
+
+                                for (var i = 0; i < buttons.length; i++) {
+                                    buttons[i].href = "/edit?id" + php_ids[i];
+                                }
+                            }
+
+                        </script>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -431,18 +463,7 @@
 	</div>
   </div>
   <!-- /content -->
-  
-  <!-- footer -->
-  <footer id="footer" class="app-footer" role="footer">
-    <div class="wrapper b-t bg-light">
-      <span class="pull-right">2.2.0 <a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
-      &copy; 2016 Copyright.
-    </div>
-  </footer>
-  <!-- / footer -->
 
 
-
-</div>
 
 <?php require($_SERVER['DOCUMENT_ROOT'].'/app/views/partials/footer.php'); ?>

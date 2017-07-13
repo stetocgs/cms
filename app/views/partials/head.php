@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/public/html/../libs/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
     <link rel="stylesheet" href="/public/html/../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css"/>
     <link rel="stylesheet" href="/public/html/../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css"/>
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="/public/html/css/font.css" type="text/css"/>
     <link rel="stylesheet" href="/public/html/css/app.css" type="text/css"/>
 

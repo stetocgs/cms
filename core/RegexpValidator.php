@@ -18,7 +18,7 @@
          *
          * @return bool
          */
-        static protected function regexpValidate ($input, $pattern)
+        static public function regexpValidate ($input, $pattern)
         {
             return 1 === preg_match ( $pattern, $input );
         }
